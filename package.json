@@ -16,6 +16,25 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@babel/preset-env": "^7.12.13",
+    "babel-jest": "^26.6.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest": "^26.6.3",
+    "react-test-renderer": "16.9",
     "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "test": "jest",
+    "lint": "./node_modules/.bin/eslint ."
+  },
+  "jest": {
+    "coverageReporters": [
+      "html",
+      "text"
+    ],
+    "testPathIgnorePatterns": ["<rootDir>/config/","<rootDir>/node_modules/"],
+    "setupFilesAfterEnv": ["./spec/javascript/test_setup.js"]
   }
+
 }
