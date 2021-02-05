@@ -13,7 +13,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+  gem 'rspec-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
 end
 
 group :development do
@@ -24,13 +26,14 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'factory_bot_rails'
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'shoulda-matchers'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'activerecord-session_store'
