@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Question, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject {Question.new}
+  it {should belong_to(:quiz)}
 end
