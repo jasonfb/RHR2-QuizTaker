@@ -5,11 +5,9 @@ describe "start a quiz", type: :feature do
     describe "so that I can be tested" do
       it "a new fresh pageload should open a new exam in  " do
         visit '/'
-        expect(page).to have_content 'Hello world'
+        expect(page).to have_content 'Welcome to Quiz Taker'
+        expect(page).to have_button 'Start Quiz'
       end
     end
   end
-
-
-
 end

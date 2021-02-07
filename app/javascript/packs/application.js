@@ -7,7 +7,16 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import QuizTakerApp from "../components/quiz_taker_app";
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+$(document).on('turbolinks:load', function() {
+  ReactDOM.render(
+    <QuizTakerApp  />,
+    document.getElementById('quiz-taker-app'),
+  )
+});
