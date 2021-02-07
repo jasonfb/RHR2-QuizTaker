@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_02_06_174003) do
   create_table "exams", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "session_id"
     t.uuid "quiz_id"
-    t.string "state"
+    t.datetime "started_at"
     t.datetime "completed_at"
     t.integer "final_score"
     t.datetime "created_at", precision: 6, null: false
