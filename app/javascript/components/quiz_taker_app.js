@@ -1,10 +1,29 @@
 import React, {useState, useEffect} from "react";
 
+import styled from 'styled-components'
+
+const StyledQuizTaker = styled.div`
+  border: solid 2px grey;
+  width: 100%;
+  margin: 5em;
+  text-align: center;
+`
+
+
+
+
 const QuizTakerApp = (props) => {
   return (
-    <div>
-      Welcome to Quiz Taker
-    </div>
+    <StyledQuizTaker>
+      <div className={"container"} >
+        <div className={"row"} >
+          <div className={"col-md-12"} >
+            Welcome to Quiz Taker
+          </div>
+
+        </div>
+      </div>
+    </StyledQuizTaker>
   )
 }
 

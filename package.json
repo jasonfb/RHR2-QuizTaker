@@ -8,6 +8,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "flux": "^4.0.1",
     "prop-types": "^15.7.2",
     "react": "16.9",
     "react-dom": "16.9",
@@ -33,8 +34,12 @@
       "html",
       "text"
     ],
-    "testPathIgnorePatterns": ["<rootDir>/config/","<rootDir>/node_modules/"],
-    "setupFilesAfterEnv": ["./spec/javascript/test_setup.js"]
+    "testPathIgnorePatterns": [
+      "<rootDir>/config/",
+      "<rootDir>/node_modules/"
+    ],
+    "setupFilesAfterEnv": [
+      "./spec/javascript/test_setup.js"
+    ]
   }
-
 }

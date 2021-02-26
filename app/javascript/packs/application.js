@@ -9,14 +9,16 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import QuizTakerApp from "../components/quiz_taker_app";
 
+import React from 'react';
+import ReactDOM from 'react-dom'
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
-$(document).on('turbolinks:load', function() {
+document.addEventListener('turbolinks:load', function() {
   ReactDOM.render(
     <QuizTakerApp  />,
     document.getElementById('quiz-taker-app'),
   )
-});
+})
