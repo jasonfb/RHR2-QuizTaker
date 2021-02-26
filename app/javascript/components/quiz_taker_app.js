@@ -9,10 +9,13 @@ const StyledQuizTaker = styled.div`
   text-align: center;
 `
 
-
+import '../dispatches/index'
 
 
 const QuizTakerApp = (props) => {
+
+
+
   return (
     <StyledQuizTaker>
       <div className={"container"} >
