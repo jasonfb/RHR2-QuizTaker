@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events';
 import Dispatcher from '../dispatcher';
-import ActionTypes from '../constants';
+import ActionTypes from '../actions/constants';
 
 const CHANGE = 'CHANGE';
 let _quizState = [];

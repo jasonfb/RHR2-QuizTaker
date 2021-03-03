@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  # loads up an HTML view containing our React JS app
   root to: "welcome#index"
 
+
+  # all other endpoints are exclusively JSON
+  resources :quizes
+  get 'quiz/random', to: "quizes#random"
+  get 'me', to: 'me#index'
 end
