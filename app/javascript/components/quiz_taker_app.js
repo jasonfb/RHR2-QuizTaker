@@ -27,13 +27,7 @@ const QuizTakerApp = (props) => {
             console.log("setting exam to", result.exam)
             // setExam(result.exam);
           } else {
-            // console.log("no exam was found, so I am loading a random quiz now")
-            // QuizActions.startNewExam()
-            //   .then(
-            //     result => {
-            //       setExam(result.exam);
-            //     }
-            //   )
+            // do nothing here, let the user start their own exam
           }
         },
         (error) => {
@@ -44,17 +38,24 @@ const QuizTakerApp = (props) => {
     ;
 
     return () => {
-      // will get invoked on componentWillUmount— use for cleanup
-      console.log("cleanup.....")
-
+      // will get invoked on componentWillUmount
+      // cleanup goes here
     }
-  })
+  }) // end of useEffect
+
+  const startNewQuiz = () => {
+    QuizActions.startNewExam()
+      .then(
+        result => {
+          setExam(result.exam);
+        }
+      )
+  }
 
   const start_button = (exam === null) ?
     <div>
-      <form action={"/exam"} method={"post"}>
-        <input type={"submit"} value={"Start New Quiz"} />
-      </form></div>
+      <button onClick={startNewQuiz} type={"submit"} >Start New Quiz</button>
+    </div>
     : ""
 
   return (
