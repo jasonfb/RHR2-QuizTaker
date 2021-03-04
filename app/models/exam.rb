@@ -1,7 +1,7 @@
 class Exam < ApplicationRecord
   belongs_to :quiz
   has_many :exam_questions
-  belongs_to :session
+  # belongs_to :session
 
   # super simple state-responder (not even using a state manager)
   def state
