@@ -12,7 +12,7 @@ const StyledQuizTaker = styled.div`
 
 const QuizTakerApp = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [quiz, setItem] = useState([]);
+  const [exam, setExam] = useState(null);
 
   useEffect(() => {
     // will get invoked where componentDidMount would have been invoked in a class
@@ -23,16 +23,22 @@ const QuizTakerApp = (props) => {
         (result) => {
           console.log("I am in QuizTakerApp")
           console.log("result is ", result);
-          // setIsLoaded(true);
-          // setQuiz(result);
-          // alert('set the quiz and loaded')
+          if(result.exam_is_in_progress) {
+            console.log("setting exam to", result.exam)
+            // setExam(result.exam);
+          } else {
+            // console.log("no exam was found, so I am loading a random quiz now")
+            // QuizActions.startNewExam()
+            //   .then(
+            //     result => {
+            //       setExam(result.exam);
+            //     }
+            //   )
+          }
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         (error) => {
           // setIsLoaded(true);
-          // setError(error);
+          setError(error);
         }
       )
     ;
@@ -44,14 +50,21 @@ const QuizTakerApp = (props) => {
     }
   })
 
+  const start_button = (exam === null) ?
+    <div>
+      <form action={"/exam"} method={"post"}>
+        <input type={"submit"} value={"Start New Quiz"} />
+      </form></div>
+    : ""
+
   return (
     <StyledQuizTaker>
       <div className={"container"} >
         <div className={"row"} >
           <div className={"col-md-12"} >
             Welcome to Quiz Taker
+            {start_button}
           </div>
-
         </div>
       </div>
     </StyledQuizTaker>

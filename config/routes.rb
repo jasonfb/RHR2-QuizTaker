@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   # all other endpoints are exclusively JSON
   resources :quizes
-  get 'quiz/random', to: "quizes#random"
+
+  resources :exam, only: [:create, :update]
+
   get 'me', to: 'me#index'
 end

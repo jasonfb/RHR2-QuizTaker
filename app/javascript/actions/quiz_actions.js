@@ -10,12 +10,23 @@ class QuizActions {
 
   }
 
-  loadRandomQuiz() {
+  startNewExam() {
+    const csrfToken = document.querySelector("[name='csrf-token']").content
+    console.log("startNewExam")
 
     Dispatcher.dispatch({
-      actionType: ActionTypes.LOAD_QUIZ
+      actionType: ActionTypes.START_NEW_EXAM
     });
-    return fetch("/quiz/random").then(res => res.json());
+    return fetch("/exam",{
+        headers: {
+          "X-CSRF-Token": csrfToken,
+          "Content-Type": "application/json"
+        },
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify({}) // body data type must match "Content-Type" header
+      }
+    ).then(res => res.json());
   }
 
 
