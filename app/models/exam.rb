@@ -1,6 +1,6 @@
 class Exam < ApplicationRecord
   belongs_to :quiz
-  has_many :exam_questions
+  has_many :exam_responses
 
   delegate :name, to: :quiz
   # super simple state-responder

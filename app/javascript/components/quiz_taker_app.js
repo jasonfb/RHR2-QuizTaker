@@ -51,6 +51,8 @@ const QuizTakerApp = (props) => {
       .then(
         result => {
           setExam(result.exam);
+
+
         }
       )
   }

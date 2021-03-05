@@ -24,7 +24,8 @@ ActiveRecord::Schema.define(version: 2021_02_06_174003) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "exam_questions", force: :cascade do |t|
+  create_table "exam_responses", force: :cascade do |t|
+    t.uuid "exam_id"
     t.uuid "chosen_answer_id"
     t.uuid "question_id"
     t.datetime "created_at", precision: 6, null: false
