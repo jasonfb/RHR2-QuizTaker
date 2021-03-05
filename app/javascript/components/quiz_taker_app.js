@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import styled from 'styled-components'
+
 import '../dispatcher/index'
+
 import QuizActions from '../actions/quiz_actions'
 const StyledQuizTaker = styled.div`
   border: solid 2px grey;
@@ -58,12 +60,15 @@ const QuizTakerApp = (props) => {
     </div>
     : ""
 
+  const exam_content = typeof(exam) === 'undefined' ? "Welcome to Quiz Taker"
+    : <Exam exam={exam}/>
+
   return (
     <StyledQuizTaker>
       <div className={"container"} >
         <div className={"row"} >
-          <div className={"col-md-12"} >
-            Welcome to Quiz Taker
+          <div className={"col-md-12"}>
+            {exam_content}
             {start_button}
           </div>
         </div>
