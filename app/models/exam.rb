@@ -2,6 +2,7 @@ class Exam < ApplicationRecord
   belongs_to :quiz
   has_many :exam_questions
 
+  delegate :name, to: :quiz
   # super simple state-responder
   # (not even a state manager)
   def state
@@ -12,6 +13,11 @@ class Exam < ApplicationRecord
     else
       "completed"
     end
+  end
+
+
+  def as_json(options)
+    super(only: [:id], methods: [:state, :name])
   end
 
   scope :not_finished, -> {where(completed_at: nil)}

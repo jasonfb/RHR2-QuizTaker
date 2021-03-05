@@ -1,7 +1,7 @@
 class CreateExams < ActiveRecord::Migration[6.1]
   def change
     create_table :exams, id: :uuid do |t|
-      t.integer :session_id  # IMPORTANT: this is NOT the alpha numeric session_id stored in the browser; this is a foreign key to the sessions table
+      t.string :session_id  # IMPORTANT: this is the alpha numeric session_id stored in the browser
       t.uuid :quiz_id
       t.datetime :started_at
       t.datetime :completed_at

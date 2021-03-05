@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2021_02_06_174003) do
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "answers", force: :cascade do |t|
-    t.integer "question_id"
+  create_table "answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "question_id"
     t.string "label"
     t.boolean "correct"
     t.datetime "created_at", precision: 6, null: false
@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 2021_02_06_174003) do
   end
 
   create_table "exam_questions", force: :cascade do |t|
-    t.uuid "exam_id"
-    t.integer "question_id"
+    t.uuid "chosen_answer_id"
+    t.uuid "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "exams", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.integer "session_id"
+    t.string "session_id"
     t.uuid "quiz_id"
     t.datetime "started_at"
     t.datetime "completed_at"
@@ -41,14 +41,14 @@ ActiveRecord::Schema.define(version: 2021_02_06_174003) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "questions", force: :cascade do |t|
-    t.integer "quiz_id"
+  create_table "questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "quiz_id"
     t.string "label"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "quizzes", force: :cascade do |t|
+  create_table "quizzes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -3,11 +3,17 @@ class ExamController < ApplicationController
     @quiz = Quiz.offset(Quiz.all.count).first # get a random quiz
 
     # there may be a table called sessions, but we don't join it here explicitly
-    @exam = Exam.new(session_id: session.id, quiz: @quiz)
-    respond_to do |format|
-      format.json {render json: {
+    begin
+      @exam = Exam.create!(session_id: session.id, quiz: @quiz)
+      result = {
         exam: @exam
-      }}
+      }
+    rescue StandardError => e
+      result = {error: e.inspect}
+    end
+
+    respond_to do |format|
+      format.json {render json: result}
     end
   end
 

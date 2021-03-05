@@ -1,7 +1,7 @@
 class CreateQuestions < ActiveRecord::Migration[6.1]
   def change
-    create_table :questions do |t|
-      t.integer :quiz_id
+    create_table :questions , id: :uuid do |t|
+      t.uuid :quiz_id
       t.string :label
 
       t.timestamps
