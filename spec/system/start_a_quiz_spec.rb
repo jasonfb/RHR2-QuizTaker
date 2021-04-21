@@ -5,6 +5,7 @@ describe "start a quiz", type: :feature do
     describe "so that I can be tested" do
 
       let!(:quiz) {create(:quiz, name: "ABC Quiz")}
+
       let!(:question_1) {create(:question, quiz: quiz, label: "What is 1+1")}
       let!(:answer_1a) {create(:answer, question: question_1, label: "1", correct: false)}
       let!(:answer_1b) {create(:answer, question: question_1, label: "2", correct: true)}
@@ -20,10 +21,9 @@ describe "start a quiz", type: :feature do
       it "should let me start a new quiz using the 'Start New Quiz' button" do
         visit "/"
         click_button 'Start New Quiz'
-        expect(page).to have_content("ABC Quiz")
+
+        expect(page).to have_content("Exam ABC Quiz")
         expect(page).to have_content("Question 1 of")
-
-
       end
     end
   end

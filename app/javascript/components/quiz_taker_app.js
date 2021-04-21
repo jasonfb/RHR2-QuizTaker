@@ -12,7 +12,6 @@ const StyledQuizTaker = styled.div`
   text-align: center;
 `
 
-
 const QuizTakerApp = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [exam, setExam] = useState(null);
@@ -51,8 +50,6 @@ const QuizTakerApp = (props) => {
       .then(
         result => {
           setExam(result.exam);
-
-
         }
       )
   }
@@ -63,7 +60,7 @@ const QuizTakerApp = (props) => {
     </div>
     : ""
 
-  const exam_content = typeof(exam) === 'undefined' ? "Welcome to Quiz Taker"
+  const exam_content = exam === null ? "Welcome to Quiz Taker"
     : <Exam exam={exam}/>
 
   return (
